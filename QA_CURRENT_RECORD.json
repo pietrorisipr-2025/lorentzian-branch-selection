@@ -1,0 +1,32 @@
+{
+  "record": "22063202",
+  "present_in_repo": 2,
+  "original_record_files": 5,
+  "source_file_sha256_and_zenodo_md5": "ALL_PASS",
+  "original_file_bytes_unmodified": true,
+  "release_bundle_sha256": "523df0a117cc05c345fc62c5f92f5a42efebb34ca9ff8dcf94be90ba92c9609e",
+  "repo_starter_sha256": "c703f0d47b58bc1a59121a6142fa6de22073afe1be54c99d48506d84fcee169f",
+  "embedded_research_archives": [
+    {
+      "name": "LBSA_PUBLIC_RELEASE_v1.0.0.zip",
+      "files": 10,
+      "total_uncompressed_bytes": 418972,
+      "crc": "PASS"
+    }
+  ],
+  "manifests": [
+    {
+      "source": "LBSA_PUBLIC_RELEASE_v1.0.0.zip",
+      "path": "SHA256SUMS.txt",
+      "pass": 9,
+      "mismatch_or_missing": []
+    }
+  ],
+  "pdfs": [
+    {
+      "name": "lorentzian_branch_selection_audit_public_v1.0.0.pdf",
+      "pages": 12,
+      "page1_title_text": "Lorentzian Branch Selection Audit Kinematic Families, Conditional Selectors, and a Fail-Closed Classification Pietro Risi 22 August 2026 – Public release v1.0.0 Abstract "
+    }
+  ]
+}

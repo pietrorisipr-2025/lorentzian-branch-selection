@@ -1,0 +1,460 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{booktabs,longtable,array}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{multirow}
+\geometry{margin=2.35cm}
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black,
+  pdftitle={Lorentzian Branch Selection Audit: Kinematic Families, Conditional Selectors, and a Fail-Closed Classification - v1.0.0},
+  pdfauthor={Pietro Risi}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\setlength{\emergencystretch}{3em}
+\setlist[itemize]{leftmargin=1.6em,itemsep=0.22em,topsep=0.35em}
+\setlist[enumerate]{leftmargin=1.8em,itemsep=0.22em,topsep=0.35em}
+\newcommand{\kap}{\kappa}
+\newcommand{\cstar}{c_{\!*}}
+\newcommand{\status}[1]{\texttt{#1}}
+\title{\bfseries Lorentzian Branch Selection Audit\\[0.25em]
+\large Kinematic Families, Conditional Selectors, and a Fail-Closed Classification}
+\author{Pietro Risi}
+\date{22 August 2026 \quad -- \quad Public release v1.0.0}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This technical research note audits a branch-selection question rather than proposing a new spacetime theory.  Starting from the generalized inertial transformation family
+\[
+x'=\frac{x-vt}{\sqrt{1-\kap v^2}},\qquad
+t'=\frac{t-\kap vx}{\sqrt{1-\kap v^2}},
+\]
+we ask whether the physically realized finite Lorentzian branch $\kap>0$ can be selected from principles genuinely weaker than a finite invariant signalling speed, a Lorentzian causal cone, Lorentzian signature, or target-equivalent content.  The analysis separates family reconstruction from sign selection and subjects proposed selectors to explicit negative controls.
+
+The core kinematic assumptions admit three branches: $\kap>0$ (hyperbolic/Lorentzian), $\kap=0$ (Galilean), and $\kap<0$ (elliptic).  Additional future-orientation or precausality conditions can exclude the elliptic branch, while hyperbolicity selects $\kap>0$ only in restricted theory classes where a nondegenerate dynamical principal symbol is tied to the kinematic quadratic form.  Galilean compressible Euler provides a hyperbolic finite-propagation counterexample to any generic inference from hyperbolicity to Lorentz kinematics.  Galilean quantum mechanics and quantum field theory likewise block generic selection by unitarity, positive norm, bounded-below energy, or quantum consistency.  Information-theoretic no-signalling is insufficiently geometric, and finite information propagation can occur in preferred-frame lattice systems and quantum cellular automata.
+
+An independent adversarial audit identified and corrected one major Phase-3 overclaim.  Arbitrary incomparability among later events does not exclude Galilean kinematics: the Galilei-invariant relation $p\prec q$ iff $\Delta t\ge T_0$ is an exact counterexample.  The repaired statement requires reachable and unreachable events at the same positive time separation; that condition excludes $\kap=0$ under full Galilean boost invariance but is operationally target-adjacent to finite spatial reach.
+
+Emergence mechanisms demonstrate that Lorentzian signature, effective cones, infrared relativistic field equations, and internal Lorentz-group structures can arise from non-Lorentzian or pre-spacetime starting points.  However, no audited candidate simultaneously establishes Lorentzian signature, a finite cone, inertial Lorentz transformations, universal mono-metricity, an operational spacetime bridge, and dynamical phase selection without importing target-adjacent structure.  The terminal fail-closed classification is therefore \status{NOT\_ESTABLISHED}.  This does not assert that the Lorentzian branch is empirically primitive: no universal no-go theorem over all possible deeper mechanisms has been proved.  Novelty remains \status{NOVELTY\_NOT\_ESTABLISHED}.
+\end{abstract}
+
+\section*{Publication claim boundary}
+This release claims only: (i) a checked reconstruction of the generalized one-parameter inertial family under an explicit assumption ledger; (ii) conditional sign-selection theorems within declared restricted classes; (iii) explicit negative controls showing why several attractive physical principles do not generically select the finite Lorentzian branch; (iv) a corrected causal-order lemma; and (v) a terminal fail-closed classification of the audited physical-origin question as \status{NOT\_ESTABLISHED}.  It does not claim a new derivation of special relativity, a proof that Lorentzian kinematics is uniquely forced by quantum theory, a universal no-go theorem against deeper mechanisms, or proof that the finite Lorentzian branch is an irreducible empirical primitive.  The relation to the earlier Recursive Power and Invariant Audit (RPIA) is one-way: LBSA audits the origin of one RPIA residue and does not reopen the conditional RPIA theorem.
+
+\noindent\textbf{Keywords:} Lorentz transformations; Galilean kinematics; generalized relativity principle; invariant speed; hyperbolicity; causal order; no-signalling; quantum cellular automata; emergent Lorentz symmetry; analogue gravity; Lorentzian signature; branch selection; negative controls; fail-closed audit.
+
+\section{Research question and notation}
+The audit studies the sign of a universal kinematic parameter $\kap$ appearing in the generalized inertial boost family.  Our sign convention is
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Branch & Sign & Interpretation \\
+\midrule
+Hyperbolic & $\kap>0$ & finite Lorentzian branch, $\cstar=1/\sqrt{\kap}$ \\
+Galilean & $\kap=0$ & absolute time, no finite invariant speed \\
+Elliptic & $\kap<0$ & rotational/compact longitudinal boost geometry \\
+\bottomrule
+\end{tabular}
+\end{center}
+The central question is not whether Lorentz kinematics is consistent or observed.  It is:
+\begin{quote}
+Can $\kap>0$ be selected from premises demonstrably weaker than a finite invariant signal speed, a Lorentzian cone/signature, or an equivalent operational restriction?
+\end{quote}
+This question is motivated by the terminal RPIA genealogy, where selection of a finite Lorentzian branch remained an empirical residue.  LBSA attempts to reduce that residue without using another frozen RPIA residue as a substitute explanation.
+
+\section{Assumption ledger: family derivation versus sign selection}
+The longitudinal transformation is reconstructed from a standard symmetry package: inertial frames, inertial motion mapped to inertial motion, spacetime homogeneity, spatial isotropy, the relativity principle, invertibility, closure under composition, regularity near the identity, and selection of the proper connected component.  Reciprocity is treated as derivable under the standard isotropic package rather than as an independent sign-selecting postulate~\cite{berzi1969,pelissetto2015,drory2015}.
+
+Homogeneity yields a linear map
+\[
+x'=a(v)x+b(v)t,\qquad t'=c(v)x+d(v)t.
+\]
+The worldline of the primed origin, $x=vt$, gives
+\[
+x'=\gamma(v)(x-vt).
+\]
+Writing
+\[
+t'=\alpha(v)[t-\epsilon(v)x],
+\]
+isotropy and inverse consistency give
+\[
+\alpha(v)=\gamma(v),\qquad
+\gamma(v)^2[1-v\epsilon(v)]=1.
+\]
+Define $\phi(v)=v\epsilon(v)$.  Closure and differentiability near the identity yield
+\[
+\frac{d\phi}{dv}=\frac{2\phi}{v},
+\]
+hence
+\[
+\phi(v)=\kap v^2,\qquad \epsilon(v)=\kap v.
+\]
+Therefore
+\begin{equation}
+\boxed{x'=\frac{x-vt}{\sqrt{1-\kap v^2}}},\qquad
+\boxed{t'=\frac{t-\kap vx}{\sqrt{1-\kap v^2}}}.
+\label{eq:boost}
+\end{equation}
+Velocity composition is
+\begin{equation}
+\boxed{u\oplus v=\frac{u+v}{1+\kap uv}}.
+\label{eq:addition}
+\end{equation}
+The boost matrix acting on $(t,x)^T$ is
+\begin{equation}
+T_\kap(v)=\frac{1}{\sqrt{1-\kap v^2}}
+\begin{pmatrix}1&-\kap v\\-v&1\end{pmatrix},
+\end{equation}
+with
+\[
+\det T_\kap(v)=1,\qquad T_\kap(v)^{-1}=T_\kap(-v),
+\]
+and
+\begin{equation}
+T_\kap(v)^T
+\begin{pmatrix}1&0\\0&-\kap\end{pmatrix}
+T_\kap(v)=
+\begin{pmatrix}1&0\\0&-\kap\end{pmatrix}.
+\label{eq:invariant}
+\end{equation}
+Thus the quadratic form
+\begin{equation}
+Q_\kap(t,x)=t^2-\kap x^2
+\end{equation}
+is invariant for nonzero $\kap$, with the Galilean branch as a degenerate limit.
+
+The crucial classification result is negative:
+\begin{equation}
+\boxed{\text{core inertial symmetry package}\;\not\Rightarrow\;\kap>0.}
+\end{equation}
+This is consistent with classic generalized-relativity derivations and critiques~\cite{berzi1969,bacry1968,pelissetto2015,drory2015}.
+
+\section{The three branches}
+\subsection{$\kap>0$: hyperbolic/Lorentzian}
+Let $\cstar=1/\sqrt{\kap}$.  Then
+\[
+Q_\kap=t^2-\frac{x^2}{\cstar^2},\qquad |v|<\cstar
+\]
+in the connected real boost chart.  With $v/\cstar=\tanh\eta$, boosts are hyperbolic rotations.  The finite invariant speed is an output of choosing the positive branch, not a result that selects that branch from the family.
+
+\subsection{$\kap=0$: Galilean}
+Equation~\eqref{eq:boost} becomes
+\[
+x'=x-vt,\qquad t'=t,
+\]
+and Eq.~\eqref{eq:addition} becomes $u\oplus v=u+v$.  This is an exact branch, not merely a low-velocity approximation to $\kap>0$.
+
+\subsection{$\kap<0$: elliptic}
+Write $\kap=-a^2$ and $y=ax$.  Then
+\[
+Q_\kap=t^2+y^2.
+\]
+The connected boost group becomes ordinary rotations in $(t,y)$, with the velocity chart related to an angular parameter by $av=\tan\theta$.  Algebra alone therefore does not exclude the elliptic branch.
+
+\section{Phase 2: hyperbolicity and well-posedness}
+A natural scalar quadratic diagnostic tied to the kinematic invariant is
+\begin{equation}
+P_\kap=\kap\partial_t^2-\partial_x^2,
+\qquad
+p_\kap(\tau,\xi)=\kap\tau^2-\xi^2.
+\label{eq:principal}
+\end{equation}
+For $\kap>0$, the roots $\tau=\pm |\xi|/\sqrt{\kap}$ are real.  For $\kap<0$, they are imaginary.  For $\kap=0$, the time degree degenerates.  Thus, \emph{inside the restricted class where the dynamical principal symbol is identified with the nondegenerate kinematic quadratic form}, Cauchy hyperbolicity selects $\kap>0$.
+
+This is a valid conditional theorem, but the bridge from kinematics to the principal symbol is an additional theory-class assumption.  It cannot be promoted to a generic physical origin.
+
+An explicit Hadamard instability illustrates the elliptic obstruction.  In units $|\kap|=1$,
+\[
+u_{tt}+u_{xx}=0,
+\]
+and
+\[
+u_n(t,x)=e^{-nT}\sinh(nt)\sin(nx)
+\]
+solves the equation.  Its initial data tend to zero in any fixed finite-order Sobolev norm, while at $t=T$ the amplitude approaches $1/2$.  Continuous dependence fails.
+
+The decisive Galilean negative control is isentropic compressible Euler,
+\[
+\rho_t+(\rho u)_x=0,
+\qquad
+u_t+uu_x+\frac{p'(\rho)}{\rho}\rho_x=0.
+\]
+With $c_s^2=p'(\rho)>0$, the principal matrix
+\[
+A=\begin{pmatrix}u&\rho\\c_s^2/\rho&u\end{pmatrix}
+\]
+has real eigenvalues $u\pm c_s$ and a positive symmetrizer.  The system is hyperbolic and has finite propagation under suitable assumptions, yet Galilean boosts shift the characteristics rather than preserve one universal finite speed~\cite{wiedemann2017}.  Therefore
+\[
+\boxed{\text{hyperbolicity + finite propagation}\;\not\Rightarrow\;\text{Lorentz kinematics}.}
+\]
+Craig and Weinstein additionally show that bare well-posedness does not by itself force ordinary one-time Lorentzian signature: constrained ultrahyperbolic evolution can be well posed on codimension-one hypersurfaces~\cite{craig2009}.
+
+\section{Phase 3: causal order and the corrected lemma}
+Future orientation is powerful enough to prune the elliptic branch.  For $\kap<0$, the connected boost group is $SO(2)$ in the scaled longitudinal plane and contains the $\pi$ rotation $z\mapsto-z$.  A nonempty pointed future set cannot be invariant under a group element that maps every direction to its opposite.  Hence an invariant oriented causal order excludes the full elliptic branch, conditional on the stated order assumptions.
+
+The Galilean branch, however, admits the exact invariant temporal order
+\begin{equation}
+p\prec_G q\quad\Longleftrightarrow\quad t(q)>t(p),
+\end{equation}
+which is transitive, acyclic and invariant under Galilean boosts.  Causal order alone therefore does not select $\kap>0$.
+
+\subsection{Independent-audit correction}
+An earlier LBSA Phase-3 formulation incorrectly claimed that the mere existence of one reachable later event and one unreachable later event excludes Galilei.  The independent audit supplied the counterexample
+\begin{equation}
+p\prec q\quad\Longleftrightarrow\quad t(q)-t(p)\ge T_0,
+\qquad T_0>0.
+\label{eq:threshold}
+\end{equation}
+This relation is Galilei-invariant, translation invariant, rotation invariant, irreflexive, asymmetric and transitive.  It has reachable and unreachable future events at \emph{different} time separations.  The old lemma is therefore false as stated.
+
+The repaired statement fixes the same positive time separation.  A Galilean boost sends
+\[
+(T,X)\mapsto(T,X-vT).
+\]
+For any desired $Y$, choosing
+\[
+v=\frac{X-Y}{T}
+\]
+maps $(T,X)$ to $(T,Y)$.  Thus, if one displacement at fixed $T>0$ is reachable and the reachability relation is fully Galilei invariant, every spatial displacement at that same $T$ lies in the boost orbit.  Therefore
+\begin{quote}
+reachable and unreachable displacements on the same positive-time slice exclude $\kap=0$.
+\end{quote}
+Combined with oriented-order exclusion of $\kap<0$, this condition selects $\kap>0$ within the one-parameter family.  The result is retained only as
+\[
+\status{PASS\_CONDITIONAL\_TARGET\_ADJACENT},
+\]
+because same-time spatial causal incomparability carries finite spatial-reach content and approaches a finite cone once regularity and homogeneity assumptions are added.
+
+\section{Phase 4: stability, positivity and unitarity}
+The free Schr\"odinger field
+\[
+S=\int dt\,d^dx\left[i\psi^\dagger\partial_t\psi-\frac{|\nabla\psi|^2}{2m}\right]
+\]
+has
+\[
+H=\int d^dx\,\frac{|\nabla\psi|^2}{2m}\ge0
+\]
+and unitary time evolution.  Galilean boosts are represented projectively/unitarily and do not destroy positivity.  Interacting Galilean quantum field theories also exist~\cite{levyleblond1967}.  Thus positive norm, unitarity, bounded energy and field-theoretic consistency do not generically exclude $\kap=0$.
+
+A conditional positive-energy obstruction exists for $\kap<0$ if the compact elliptic group is required to act in the standard dual linear representation on physical energy-momentum generators: the $\pi$ element maps $(E,p)$ to $(-E,-p)$.  This conflicts with a nontrivial positive-energy cone, but the energy-momentum representation is an additional physical input and overlaps a separate RPIA residue.
+
+Stable Lorentz-violating theories such as suitable Einstein-aether sectors provide a broader negative control against the claim that stability alone implies exact Lorentz invariance~\cite{donnelly2010}.
+
+Reflection positivity and standard S-matrix positivity are also not branch-neutral selectors.  Osterwalder--Schrader reconstruction is a conditional theorem from a strong Euclidean axiom package~\cite{osterwalder1973,osterwalder1975}.  Standard EFT positivity bounds typically begin inside a Lorentz/Poincare-invariant framework, while positivity programs without boost invariance demonstrate that positivity itself does not uniquely encode Lorentz boosts~\cite{grall2022}.
+
+\section{Phase 5: information, no-signalling and locality}
+For a bipartite state $\rho_{AB}$ and a local trace-preserving operation on $B$,
+\[
+\rho'_A=\mathrm{Tr}_B[(I\otimes\mathcal E_B)(\rho_{AB})]=\rho_A.
+\]
+This no-signalling result uses subsystem structure and trace preservation, not a spacetime metric, distance, invariant speed or boost group.  Information-theoretic no-signalling is therefore too weak to select the Lorentzian branch.
+
+The free Schr\"odinger propagator is nonzero at arbitrarily large spatial separation for any $t>0$, showing that subsystem no-signalling and exact finite spatial propagation are distinct.
+
+Lieb--Robinson bounds establish effective finite propagation velocities in nonrelativistic lattice systems~\cite{bravyi2006}.  Quantum cellular automata can go further and possess exact bounded propagation per discrete time step while retaining a preferred lattice/time update.  Hence even strict finite information reach does not, by itself, imply Lorentz relativity.
+
+Microcausality is powerful only after a spacelike relation or cone is supplied.  Operational ``superluminal'' tests likewise require a reference causal structure.  These are consistency tests inside a causal geometry, not pre-cone selectors.
+
+Two quantum-information routes remain conceptually important.  H\"ohn and M\"uller derive an orthochronous Lorentz group up to scaling from operational synchronization of quantum descriptions, but explicitly leave open the bridge from that internal/operational group to external spacetime kinematics~\cite{hohn2016}.  Fullwood, Vedral and Guzm\'an-Gonz\'alez derive Lorentzian symmetry and a Minkowski form on qubit-observable space in a pre-spacetime setting~\cite{fullwood2026}; an explicit mechanism mapping that internal structure to physical event spacetime remains open at the level required by LBSA.
+
+\section{Phase 6: emergence candidates}
+LBSA requires six gates for a full emergent reduction:
+\begin{enumerate}
+\item Lorentzian signature or hyperbolic causal structure;
+\item a finite cone;
+\item inertial Lorentz transformations, not only a relativistic-looking dispersion law;
+\item universal/shared cone across relevant sectors;
+\item an operational bridge to physical spacetime coordinates and observers;
+\item dynamical selection of the Lorentzian phase rather than mere existence of such a phase.
+\end{enumerate}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.20\linewidth}>{\raggedright\arraybackslash}p{0.31\linewidth}>{\raggedright\arraybackslash}p{0.39\linewidth}}
+\caption{Representative emergence routes and their LBSA boundary.}\\
+\toprule
+Route & What succeeds & Unresolved LBSA obstruction \\
+\midrule
+\endfirsthead
+\toprule
+Route & What succeeds & Unresolved LBSA obstruction \\
+\midrule
+\endhead
+Girelli--Liberati--Sindoni & Lorentzian perturbation structure can emerge from a Riemannian starting theory around selected backgrounds~\cite{girelli2009}. & Background/phase selection is not generic; mono-metricity requires additional restrictions; higher-order Lorentz breaking can remain. \\
+Mukohyama--Uzan & Classical scalar/vector/spinor sectors can acquire effective Lorentzian dynamics from a Euclidean parent via a clock-field construction~\cite{mukohyama2013}. & Nonzero clock gradient and coupling/metric conditions are inputs; universal phase selection is not established. \\
+Analogue/BEC & Nonrelativistic media generate effective Lorentzian quasiparticle cones. & Preferred medium, multiple cones/speeds, high-energy Lorentz violation; one effective cone is not fundamental spacetime. \\
+RG alignment & Different limiting speeds can flow toward a common IR value in model classes~\cite{anber2011}. & Finite sector velocities and spacetime dynamics are already present; speed alignment is not the origin of the first finite branch. \\
+QCA/quantum walks & Discrete local quantum dynamics can recover Weyl/Dirac/Maxwell/free-QED behavior in the continuum/IR~\cite{darianoperinotti2014,brun2025}. & Microscopic finite locality is target-adjacent; exact standard Lorentz symmetry is not generic at all scales; realistic interacting universality and observer bridge remain incomplete. \\
+H\"ohn--M\"uller & Internal/operational Lorentz group from quantum communication~\cite{hohn2016}. & External spacetime/cone bridge not proved from the same premises. \\
+Fullwood--Vedral--Guzm\'an-Gonz\'alez & Minkowski form and Lorentz symmetry in qubit-observable/information space~\cite{fullwood2026}. & External event spacetime, physical cone and inertial-coordinate bridge not yet derived. \\
+Causal-set/discrete causal routes & Lorentz-compatible discreteness and causal reconstruction. & Lorentzian causal order/continuum target enters the correspondence and cannot serve as a branch-neutral selector. \\
+\bottomrule
+\end{longtable}
+
+No audited route passes all six gates.  This is an incompleteness result about the reviewed mechanisms, not a universal impossibility theorem.
+
+\section{Phase 7: negative controls}
+The audit deliberately preserves counterexamples.  Table~\ref{tab:negative} summarizes the most important ones.
+\begin{table}[ht]
+\centering
+\caption{Negative controls against overbroad selection claims.}
+\label{tab:negative}
+\renewcommand{\arraystretch}{1.14}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.30\linewidth}>{\raggedright\arraybackslash}p{0.60\linewidth}}
+\toprule
+Proposed generic selector & Counterexample / obstruction \\
+\midrule
+Core kinematic symmetries & Exact Galilean and elliptic branches remain in the generalized family. \\
+Hyperbolicity / finite propagation & Galilean compressible Euler has real characteristics and finite propagation. \\
+Bare well-posedness & Constrained ultrahyperbolic evolution can be well posed. \\
+Causal order & Absolute Galilean time supplies an invariant acyclic temporal order. \\
+Unitarity / positive energy & Schr\"odinger theory and Galilean QFT. \\
+Finite information reach & Lieb--Robinson systems and exact-local QCA in preferred structures. \\
+One causal cone & Analogue media can have effective cones without fundamental Lorentz relativity. \\
+Causality implies mono-metricity & Birefringent/premetric systems can possess multiple characteristic cones. \\
+Cone implies Lorentz metric & Finsler/deformed geometries admit more general cone structures. \\
+Stability & Stable Lorentz-violating aether sectors exist. \\
+Emergent Lorentz phase exists & Euclidean-parent models do not generically select the Lorentzian background. \\
+Internal $SO(1,3)$ & Internal quantum-information Lorentz symmetry still needs an external spacetime bridge. \\
+Common limiting speed & RG alignment does not derive the origin of the finite branch. \\
+Integrability & The Lieb--Liniger model is an interacting integrable Galilean system. \\
+\bottomrule
+\end{tabular}
+\end{table}
+These controls do not falsify Lorentzian physics.  They falsify attempts to infer it from principles that are also realized in consistent non-Lorentzian settings.
+
+\section{Independent external audit}
+After Phases 0--7 were frozen, an independent Codex audit was commissioned with an adversarial, fail-closed brief.  The returned bundle reported:
+\begin{itemize}
+\item independent verification of the generalized boost algebra and branch domains;
+\item 28 symbolic/mathematical checks with zero reported failures;
+\item review of the mandatory negative controls plus additional controls;
+\item deterministic bundle reconstruction with byte-identical consecutive builds;
+\item discovery of the Phase-3 causal-incomparability error and the exact threshold counterexample~\eqref{eq:threshold};
+\item identification of Mukohyama--Uzan (2013) as an omitted prior-art route;
+\item recommendation \status{NOT\_ESTABLISHED};
+\item \status{RPIA\_REOPENED = NO} and \status{NOVELTY\_NOT\_ESTABLISHED}.
+\end{itemize}
+The audit did not modify the historical Phase files.  The present public note incorporates its corrections into the current claim boundary.
+
+\section{Terminal classification}
+The allowed terminal labels were:
+\begin{itemize}
+\item \status{DERIVED\_FROM\_WEAKER\_PRINCIPLES};
+\item \status{CONDITIONAL\_SELECTION};
+\item \status{CIRCULAR\_OR\_EQUIVALENT\_INPUT};
+\item \status{EMPIRICAL\_PRIMITIVE};
+\item \status{NOT\_ESTABLISHED}.
+\end{itemize}
+The terminal global classification is
+\begin{equation}
+\boxed{\status{FINITE\_LORENTZIAN\_BRANCH = NOT\_ESTABLISHED}.}
+\end{equation}
+The other labels are rejected as global summaries for distinct reasons.
+
+\paragraph{Not \status{DERIVED\_FROM\_WEAKER\_PRINCIPLES}.}
+The core kinematic family leaves all signs open, and all reviewed stronger selectors either fail generically, restrict the theory class, or add target-adjacent premises.
+
+\paragraph{Not globally \status{CONDITIONAL\_SELECTION}.}
+Conditional theorems do exist: the kinematic/principal-symbol bridge selects the hyperbolic sign, future orientation excludes the elliptic group, and corrected same-time causal incomparability excludes Galilei inside the one-parameter family.  These are local route labels, not a global explanation of physical branch origin.
+
+\paragraph{Not globally \status{CIRCULAR\_OR\_EQUIVALENT\_INPUT}.}
+Some routes are circular or target-equivalent, such as imposing a universal finite invariant speed or Lorentzian cone.  Others are noncircular but incomplete/model-specific.  The entire open problem cannot be classified as circular.
+
+\paragraph{Not \status{EMPIRICAL\_PRIMITIVE}.}
+Failure to find a mechanism is not a no-go theorem.  Open emergence/bridge possibilities remain, so irreducible primitiveness is not established.
+
+Hence \status{NOT\_ESTABLISHED} is the strongest justified fail-closed global label.
+
+\section{Relation to RPIA}
+RPIA derived a conditional mass-energy reconstruction once a finite Lorentzian branch and other operational residues are supplied.  LBSA studies whether the finite-branch residue can itself be reduced.  No LBSA correction contradicts the RPIA conditional theorem or its terminal algebra.  Therefore
+\[
+\status{RPIA\_REOPENED = NO}.
+\]
+The two projects answer different logical questions:
+\begin{align*}
+\text{RPIA: }&\quad \text{given the operational Lorentzian package, what follows?}\\
+\text{LBSA: }&\quad \text{why should the finite Lorentzian branch be selected at all?}
+\end{align*}
+LBSA closes the second question only in the fail-closed sense \status{NOT\_ESTABLISHED}.
+
+\section{Limitations and reopening rule}
+The audit is finite and literature-bounded.  It is not a proof over all logically possible microphysical, operational or pregeometric theories.  Novelty is therefore not asserted.  A future LBSA branch is authorized only by at least one of the following:
+\begin{enumerate}
+\item a genuinely new mechanism that starts from premises demonstrably weaker than finite causal reach/Lorentzian cone structure and passes the negative controls;
+\item a proof of the missing internal-quantum-geometry to operational-spacetime bridge in a pre-spacetime route;
+\item a universal no-go theorem with a clearly stated theory class broad enough to justify a stronger terminal label;
+\item a real factual or logical error in the present terminal closure.
+\end{enumerate}
+Mere absence of a mechanism is not authorization to relabel the branch empirical primitive.
+
+\section{Reproducibility and audit trail}
+The public release includes the complete LaTeX source, a claim-boundary file, terminal closure, release notes, SHA-256 manifest, and an audit supplement containing the terminal Phase-8 package, the independent Codex bundle, the Phase-7 negative-control ledger and representative symbolic scripts/matrices.  The public PDF is a synthesis; historical Phase files remain preserved as audit provenance.
+
+\appendix
+\section{Compact phase ledger}
+\begin{longtable}{c>{\raggedright\arraybackslash}p{0.24\linewidth}>{\raggedright\arraybackslash}p{0.55\linewidth}}
+\toprule
+Phase & Gate & Terminal disposition \\
+\midrule
+0 & Prior art / taxonomy & Conditional coverage after adding Mukohyama--Uzan; no generic selector found. \\
+1 & Kinematic classification & Family replication PASS; sign not selected. \\
+2 & Hyperbolicity & Conditional selector in restricted principal-symbol class; generic selector FAIL. \\
+3 & Causal order & Elliptic branch conditionally excluded; old Gate D FAIL; same-time repair conditional and target-adjacent. \\
+4 & Stability / unitarity & Generic selection FAIL; Galilean quantum controls survive. \\
+5 & Information / locality & Generic selection FAIL; strict reach does not imply Lorentz in unrestricted theory space. \\
+6 & Emergence & Pieces emerge in model classes; full six-gate reduction not established. \\
+7 & Negative controls & PASS; overbroad derivations rejected. \\
+8 & Terminal classification & \status{NOT\_ESTABLISHED}. \\
+\bottomrule
+\end{longtable}
+
+\section{Status ledger}
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Item & Status \\
+\midrule
+Core family reconstruction & \status{KNOWN\_RESULT\_REDERIVED} \\
+Generic sign selection & \status{NOT\_ESTABLISHED} \\
+Elliptic exclusion by future orientation & \status{CONDITIONAL} \\
+Hyperbolic-sign selection with principal-symbol bridge & \status{CONDITIONAL} \\
+Same-time causal incomparability selector & \status{CONDITIONAL\_TARGET\_ADJACENT} \\
+Galilean exclusion by generic quantum consistency & \status{FAIL} \\
+Generic emergence of full Lorentzian branch & \status{NOT\_ESTABLISHED} \\
+Empirical primitiveness & \status{NOT\_ESTABLISHED} \\
+Novelty & \status{NOVELTY\_NOT\_ESTABLISHED} \\
+RPIA reopened & \status{NO} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{thebibliography}{99}
+\bibitem{bacry1968} H. Bacry and J.-M. L\'evy-Leblond, ``Possible Kinematics,'' \emph{J. Math. Phys.} \textbf{9}, 1605--1614 (1968), doi:10.1063/1.1664490.
+\bibitem{berzi1969} V. Berzi and V. Gorini, ``Reciprocity Principle and the Lorentz Transformations,'' \emph{J. Math. Phys.} \textbf{10}, 1518--1524 (1969), doi:10.1063/1.1665000.
+\bibitem{pelissetto2015} A. Pelissetto and M. Testa, ``Getting the Lorentz transformations without requiring an invariant speed,'' \emph{Am. J. Phys.} \textbf{83}, 338--340 (2015), arXiv:1504.02423.
+\bibitem{drory2015} A. Drory, ``The necessity of the second postulate in special relativity,'' \emph{Stud. Hist. Philos. Mod. Phys.} \textbf{51}, 57--67 (2015), arXiv:1412.4018.
+\bibitem{wiedemann2017} E. Wiedemann, ``Weak-strong uniqueness in fluid dynamics,'' arXiv:1712.05612 (2017), including finite-speed propagation for isentropic Euler under the stated hypotheses.
+\bibitem{craig2009} W. Craig and S. Weinstein, ``On determinism and well-posedness in multiple time dimensions,'' \emph{Proc. R. Soc. A} \textbf{465}, 3023--3046 (2009), arXiv:0812.0210.
+\bibitem{levyleblond1967} J.-M. L\'evy-Leblond, ``Galilean quantum field theories and a ghostless Lee model,'' \emph{Commun. Math. Phys.} \textbf{4}, 157--176 (1967), doi:10.1007/BF01645427.
+\bibitem{donnelly2010} W. Donnelly and T. Jacobson, ``Stability of the aether,'' \emph{Phys. Rev. D} \textbf{82}, 081501(R) (2010), arXiv:1008.4351.
+\bibitem{osterwalder1973} K. Osterwalder and R. Schrader, ``Axioms for Euclidean Green's functions,'' \emph{Commun. Math. Phys.} \textbf{31}, 83--112 (1973).
+\bibitem{osterwalder1975} K. Osterwalder and R. Schrader, ``Axioms for Euclidean Green's functions II,'' \emph{Commun. Math. Phys.} \textbf{42}, 281--305 (1975).
+\bibitem{grall2022} T. Grall and S. Melville, ``Positivity Bounds without Boosts,'' \emph{Phys. Rev. D} \textbf{105}, L121301 (2022), arXiv:2102.05683.
+\bibitem{bravyi2006} S. Bravyi, M. B. Hastings and F. Verstraete, ``Lieb-Robinson bounds and the generation of correlations and topological quantum order,'' \emph{Phys. Rev. Lett.} \textbf{97}, 050401 (2006), arXiv:quant-ph/0603121.
+\bibitem{hohn2016} P. A. H\"ohn and M. P. M\"uller, ``An operational approach to spacetime symmetries: Lorentz transformations from quantum communication,'' \emph{New J. Phys.} \textbf{18}, 063026 (2016), arXiv:1412.8462.
+\bibitem{fullwood2026} J. Fullwood, V. Vedral and E. Guzm\'an-Gonz\'alez, ``On Lorentzian symmetries of quantum information,'' arXiv:2604.07471 (2026 preprint).
+\bibitem{girelli2009} F. Girelli, S. Liberati and L. Sindoni, ``Emergence of Lorentzian signature and scalar gravity,'' \emph{Phys. Rev. D} \textbf{79}, 044019 (2009), arXiv:0806.4239.
+\bibitem{mukohyama2013} S. Mukohyama and J.-P. Uzan, ``From configuration to dynamics: Emergence of Lorentz signature in classical field theory,'' \emph{Phys. Rev. D} \textbf{87}, 065020 (2013), arXiv:1301.1361.
+\bibitem{anber2011} M. M. Anber and J. F. Donoghue, ``Emergence of a Universal Limiting Speed,'' \emph{Phys. Rev. D} \textbf{83}, 105027 (2011).
+\bibitem{darianoperinotti2014} G. M. D'Ariano and P. Perinotti, ``Derivation of the Dirac equation from principles of information processing,'' \emph{Phys. Rev. A} \textbf{90}, 062106 (2014).
+\bibitem{brun2025} T. A. Brun and L. Mlodinow, ``Quantum Electrodynamics from Quantum Cellular Automata, and the Tension Between Symmetry, Locality, and Positive Energy,'' \emph{Entropy} \textbf{27}, 492 (2025), arXiv:2503.05998.
+\end{thebibliography}
+
+\end{document}

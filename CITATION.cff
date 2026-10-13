@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "Please cite the original Zenodo record and version used."
+title: "Lorentzian Branch Selection Audit: Kinematic Families, Conditional Selectors, and a Fail-Closed Classification"
+authors:
+  - family-names: "Risi"
+    given-names: "Pietro"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.22063202"
+    description: "Original Zenodo record DOI"
+url: "https://zenodo.org/records/22063202"
